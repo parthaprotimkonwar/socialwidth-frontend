@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+.DS_Store
+.gitignore
+.idea/
+css/.DS_Store
+css/plugin/.DS_Store
+css/plugin/bootstrap-toggle/.DS_Store
+fonts/.DS_Store
+img/.DS_Store
+img/alerticons/.DS_Store
+img/datatables/.DS_Store
+img/modalicons/.DS_Store
+js/.DS_Store
+js/chartist/.DS_Store
