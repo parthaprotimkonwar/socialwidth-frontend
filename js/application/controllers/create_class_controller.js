@@ -10,6 +10,11 @@ myApp.controller('createClassController', ['$scope', '$http', function ($scope, 
         $('input[name="daterange"]').daterangepicker();
     });
 
+    $(document).ready(function() {
+        $('#date-picker1').daterangepicker({ singleDatePicker: true }, function(start, end, label) {
+            console.log(start.toISOString(), end.toISOString(), label);
+        });
+    });
         /*$(document).ready(function() {
             $('#date-range-picker').daterangepicker(null, function(start, end, label) {
                 console.log(start.toISOString(), end.toISOString(), label);
