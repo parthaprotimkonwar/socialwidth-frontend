@@ -1,27 +1,47 @@
 <div class="login-form">
-    <form action="index.html">
+    <form>
+
         <div class="top">
             <h1>Register</h1>
             <h4>Welcome to SocialBean community !</h4>
         </div>
+
+
+        <!-- Start an Alert -->
+        <div ng-show="status.request_success" class="kode-alert kode-alert-icon alert3">
+            <i class="fa fa-check"></i>
+            <a href="#" class="closed">&times;</a>
+            {{message}}
+        </div>
+        <!-- End an Alert -->
+
+        <!-- Start an Alert -->
+        <div ng-show="status.request_failure" class="kode-alert kode-alert-icon alert6">
+            <i class="fa fa-lock"></i>
+            <a href="#" class="closed">&times;</a>
+            <!--Sorry! You might have some details mis-configured-->
+            {{message}}
+        </div>
+        <!-- End an Alert -->
+
         <div class="form-area">
             <div class="group">
-                <input type="text" class="form-control" placeholder="Username">
+                <input type="text" class="form-control" placeholder="Username" ng-model="register.username">
                 <i class="fa fa-user"></i>
             </div>
             <div class="group">
-                <input type="text" class="form-control" placeholder="E-mail">
+                <input type="text" class="form-control" placeholder="E-mail" ng-model="register.email">
                 <i class="fa fa-envelope-o"></i>
             </div>
             <div class="group">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" class="form-control" placeholder="Password" ng-model="register.password">
                 <i class="fa fa-key"></i>
             </div>
             <div class="group">
-                <input type="password" class="form-control" placeholder="Password again">
+                <input type="password" class="form-control" placeholder="Password again" ng-model="register.confirm_password">
                 <i class="fa fa-key"></i>
             </div>
-            <button type="submit" class="btn btn-default btn-block">REGISTER NOW</button>
+            <button type="submit" ng-click="registerUser()" class="btn btn-default btn-block">REGISTER NOW</button>
         </div>
     </form>
     <div class="footer-links row">
