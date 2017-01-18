@@ -5,7 +5,8 @@
 /**
  * Created by pkonwar on 1/15/2017.
  */
-loginAppModule.controller('registerController', ['$scope', '$http', '$interval', 'CONSTANTS', 'common', function ($scope, $http, $interval, CONSTANTS, common) {
+loginAppModule.controller('registerController', ['$scope', '$http', '$interval', '$location', 'CONSTANTS', 'common',
+                        function ($scope, $http, $interval, $location, CONSTANTS, common) {
 
     $scope.name = "lets login";
 
@@ -23,6 +24,9 @@ loginAppModule.controller('registerController', ['$scope', '$http', '$interval',
             "password": $scope.register.password
         };
 
+        console.log("data to be send :");
+        console.log($scope.register);
+
         //validations
         if (!($scope.register.password === $scope.register.confirm_password)) {
             errorMesage("Password and Confirm password doesn't match");
@@ -38,10 +42,11 @@ loginAppModule.controller('registerController', ['$scope', '$http', '$interval',
             console.log(data);
             console.log("clearing off the data");
             $scope.register = {};       //clearing off the user registration form
-            successMesage("success");
+            successMesage("User Registered. Login to proceed!");
+            //$location.path('/admin/login');
         }).error(function (data, status, headers, config) {
             console.log('AWS DOWN');
-            $scope.errorMesage("failure");
+            errorMesage(data.errorMessage);
         });
     }
 
@@ -63,7 +68,7 @@ loginAppModule.controller('registerController', ['$scope', '$http', '$interval',
     function errorMesage(message) {
         $scope.status.request_failure = "true";
         $scope.message = message;
-        $interval(clearStatus, 10000, 1);    //clear the status after 6 sec
+        $interval(clearStatus, 10000, 1);    //clear the status after 10 sec
     }
 
 }]);
