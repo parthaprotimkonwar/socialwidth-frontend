@@ -1,7 +1,7 @@
 myApp.service('common', function ($http, CONSTANTS, $window) {
 
     this.httpRequest = function (url, getOrPost, postData) {
-        if (getOrPost === CONSTANTS.GET_METHOD) {
+        if (getOrPost === CONSTANTS.GET) {
             return $http.get(url);
         }
         else {

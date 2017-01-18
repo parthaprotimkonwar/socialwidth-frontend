@@ -40,7 +40,7 @@
                         <tr>
                             <th>Topic</th>
                             <th>Start Time</th>
-                            <th>Duration</th>
+                            <th>Duration(hrs)</th>
                             <th>Presenter URL</th>
                             <th>Attendee URL</th>
                         </tr>
@@ -50,33 +50,19 @@
                         <tr>
                             <th>Topic</th>
                             <th>Start Time</th>
-                            <th>Duration</th>
+                            <th>Duration(hrs)</th>
                             <th>Presenter URL</th>
                             <th>Attendee URL</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
-                        <tr>
-                            <td>Linear Algebra</td>
-                            <td>12:23</td>
-                            <td>3 hrs</td>
-                            <td>http://u.videocloud.com/p/xvu</td>
-                            <td>http://u.videocloud.com/a/xvu</td>
-                        </tr>
-                        <tr>
-                            <td>Geometry</td>
-                            <td>1:23</td>
-                            <td>2 hrs</td>
-                            <td>http://u.videocloud.com/p/rvu</td>
-                            <td>http://u.videocloud.com/a/vvu</td>
-                        </tr>
-                        <tr>
-                            <td>Programming</td>
-                            <td>2:23</td>
-                            <td>1 hrs</td>
-                            <td>http://u.videocloud.com/p/x55</td>
-                            <td>http://u.videocloud.com/a/x8u</td>
+                        <tr ng-repeat="meeting in upcomingClasses">
+                            <td>{{meeting.title}}</td>
+                            <td>{{meeting.startDateTime}}</td>
+                            <td>{{meeting.duration}}</td>
+                            <td>http://u.videocloud.com/p/{{meeting.presenterToken}}</td>
+                            <td>http://u.videocloud.com/a/{{meeting.attendeesUrl}}</td>
                         </tr>
                         </tbody>
                     </table>

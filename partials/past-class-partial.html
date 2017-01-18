@@ -39,7 +39,7 @@
                         <thead>
                         <tr>
                             <th>Topic</th>
-                            <th>Duration</th>
+                            <th>Duration(hrs)</th>
                             <th>Recorded URL</th>
                         </tr>
                         </thead>
@@ -47,26 +47,16 @@
                         <tfoot>
                         <tr>
                             <th>Topic</th>
-                            <th>Duration</th>
+                            <th>Duration(hrs)</th>
                             <th>Recorded URL</th>
                         </tr>
                         </tfoot>
 
                         <tbody>
-                        <tr>
-                            <td>Linear Algebra</td>
-                            <td>3 hrs</td>
-                            <td>http://u.videocloud.com/xvu</td>
-                        </tr>
-                        <tr>
-                            <td>Geometry</td>
-                            <td>1 hrs</td>
-                            <td>http://u.videocloud.com/rvu</td>
-                        </tr>
-                        <tr>
-                            <td>Programming</td>
-                            <td>2 hrs</td>
-                            <td>http://u.videocloud.com/xvb</td>
+                        <tr ng-repeat="meeting in pastClasses">
+                            <td>{{meeting.title}}</td>
+                            <td>{{meeting.duration}}</td>
+                            <td>{{meeting.recordedUrl}}</td>
                         </tr>
                         </tbody>
                     </table>

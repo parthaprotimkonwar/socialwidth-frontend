@@ -23,6 +23,7 @@
 <div class="container-padding">
 
 
+    {{message}}
 
     <!-- Start Row -->
     <div class="row">
@@ -45,7 +46,7 @@
                         <div class="form-group">
                             <label for="input-topic" class="col-sm-2 control-label form-label">Topic</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="input-topic">
+                                <input type="text" class="form-control" id="input-topic" ng-model="meeting.topic">
                             </div>
                         </div>
 
@@ -55,7 +56,7 @@
                             <div class="col-sm-10">
                                 <div class="input-prepend input-group">
                                     <span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" id="date-picker1" class="form-control " value="03/18/2015"/>
+                                    <input type="text" id="date-picker1" class="form-control" ng-model="meeting.datetime" value="03/18/2015 1:30 AM"/>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +67,7 @@
                                 <label class="sr-only" for="timeDuration">Time (in hours)</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-history"></i></div>
-                                    <input type="text" class="form-control" id="timeDuration" placeholder="Time in hours">
+                                    <input type="text" class="form-control" id="timeDuration" ng-model="meeting.timeduration" placeholder="Time in hours">
                                     <div class="input-group-addon">hours</div>
                                 </div>
                             </div>
@@ -75,7 +76,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label form-label">Invite others</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="3" id="textarea_invite_others" placeholder="Mention email id separated by comma"></textarea>
+                                <textarea class="form-control" rows="3" id="textarea_invite_others" ng-model="meeting.inviteothers" placeholder="Mention email id separated by comma"></textarea>
                             </div>
                         </div>
 
@@ -83,7 +84,7 @@
                         <div class="form-group">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10">
-                                <a href="#" class="btn btn-primary"><i class="fa fa-paper-plane-o"></i>Schedule it</a>
+                                <button type="submit" ng-click="schedule()" class="btn btn-primary"><i class="fa fa-paper-plane-o"></i>Schedule it</button>
                             </div>
                         </div>
 

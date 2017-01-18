@@ -1,15 +1,8 @@
 /**
  * Created by pkonwar on 1/15/2017.
  */
-
-/**
- * Created by pkonwar on 1/15/2017.
- */
 loginAppModule.controller('loginController', ['$scope', '$http', '$interval', '$location', '$window', 'CONSTANTS', 'common',
     function ($scope, $http, $interval, $location, $window, CONSTANTS, common) {
-
-        $scope.name = "lets login";
-
 
         $scope.login = function () {
 
@@ -41,6 +34,9 @@ loginAppModule.controller('loginController', ['$scope', '$http', '$interval', '$
                     //login is successful
                     $scope.user = {};       //clearing off the user registration form
                     successMesage("User Login is successful");
+
+                    localStorage.setItem("userId",data.data.id);
+
                     //$location.url('index.html?/admin/dashboard');
                     //$window.location.href = 'http://localhost:9000/index.html?';
                     var url = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/HTML/index.html?";
