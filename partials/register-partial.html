@@ -1,9 +1,10 @@
 <div class="login-form">
-    <form>
+    <form name="register_form">
 
         <div class="top">
+            <img src="img/christ_univ_logo.png" alt="icon" class="icon">
             <h1>Register</h1>
-            <h4>Welcome to SocialBean community !</h4>
+            <h4>Welcome to Christ University community !</h4>
         </div>
 
 
@@ -26,22 +27,26 @@
 
         <div class="form-area">
             <div class="group">
-                <input type="text" class="form-control" placeholder="Username" ng-model="register.username">
+                <input type="text" class="form-control" placeholder="Username" ng-model="register.username" required>
                 <i class="fa fa-user"></i>
             </div>
             <div class="group">
-                <input type="text" class="form-control" placeholder="E-mail" ng-model="register.email">
+                <input type="text" class="form-control" placeholder="E-mail" ng-model="register.email" required>
                 <i class="fa fa-envelope-o"></i>
             </div>
             <div class="group">
-                <input type="password" class="form-control" placeholder="Password" ng-model="register.password">
+                <input type="password" class="form-control" placeholder="Password" ng-model="register.password"
+                       required>
                 <i class="fa fa-key"></i>
             </div>
             <div class="group">
-                <input type="password" class="form-control" placeholder="Password again" ng-model="register.confirm_password">
+                <input type="password" class="form-control" placeholder="Password again"
+                       ng-model="register.confirm_password" required>
                 <i class="fa fa-key"></i>
             </div>
-            <button type="submit" ng-click="registerUser()" class="btn btn-default btn-block">REGISTER NOW</button>
+            <button type="submit" ng-click="register_form.$valid && registerUser()" class="btn btn-default btn-block">
+                REGISTER NOW
+            </button>
         </div>
     </form>
     <div class="footer-links row">

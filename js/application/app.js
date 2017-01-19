@@ -25,7 +25,7 @@ myApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $http
         templateUrl: 'partials/upcoming-class-partial.html',
         controller: 'upcomingClassController'
     }).otherwise({
-        redirectTo: '/admin/dashboard'
+        redirectTo: '/admin/class/upcoming'
     });
 }]);
 
