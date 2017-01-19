@@ -81,8 +81,8 @@
       <a href="#" class="notifications">6</a>
     </li>-->
 
-    <li class="dropdown link">
-      <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="img/profileimg.png" alt="img"><b>Jonathan Doe</b><span class="caret"></span></a>
+    <li class="dropdown link" ng-controller="headerBarController">
+      <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="img/defaultimg.png" alt="img"><b>{{username}}</b><span class="caret"></span></a>
         <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
           <li role="presentation" class="dropdown-header">Profile</li>
           <!--<li><a href="#"><i class="fa falist fa-inbox"></i>Inbox<span class="badge label-danger">4</span></a></li>
@@ -90,7 +90,7 @@
           <li><a href="#"><i class="fa falist fa-wrench"></i>Settings</a></li>
           <li class="divider"></li>
           <li><a href="#"><i class="fa falist fa-lock"></i> Lockscreen</a></li>-->
-          <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+          <li><a ng-click="logout()"><i class="fa falist fa-power-off"></i> Logout</a></li>
         </ul>
     </li>
 
@@ -193,6 +193,7 @@ Bootstrap Core JavaScript File
 <script type="text/javascript" src="js/application/controllers/create_class_controller.js"></script>
 <script type="text/javascript" src="js/application/controllers/past_class_controller.js"></script>
 <script type="text/javascript" src="js/application/controllers/upcoming_class_controller.js"></script>
+<script type="text/javascript" src="js/application/controllers/header_bar_controller.js"></script>
 
 <!-- ================================================
 Plugin.js - Some Specific JS codes for Plugin Settings

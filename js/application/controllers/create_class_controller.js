@@ -5,16 +5,32 @@ myApp.controller('createClassController', ['$scope', '$http', '$interval', '$loc
     function ($scope, $http, $interval, $location, $window, CONSTANTS, common) {
 
         $scope.name = "create class controller";
+        $scope.meeting = {};
+        $scope.meeting.phase = 'AM';
+        $scope.meeting.hour = '10';
+        $scope.meeting.minutes = '30';
+
         $scope.schedule = function () {
 
             //the URL
             var url = CONSTANTS.APP_BASE_URL + "/meetings/create";
 
             $scope.status = {};
+            //$scope.meeting = {};
+            /* $scope.defaults = {
+             "values": [ "Service 1", "Service 2", "Service 3", "Service 4"]
+             };
+             $scope.meeting.hour = 10;
+             $scope.meeting.minutes = 10;
+             $scope.meeting.phase = 'AM';*/
 
             //"04/07/2017 23:02:55"
             var userId = localStorage.getItem("userId");
-            var thedate = calculateDate($scope.meeting.datetime);
+            var updatedDate = $scope.meeting.datetime + " " + $scope.meeting.hour + ":" + $scope.meeting.minutes + " " + $scope.meeting.phase;
+            console.log("updated date : " + updatedDate);
+            var thedate = calculateDate(updatedDate);
+            console.log("the date : " + thedate);
+
             var data = {
                 "title": $scope.meeting.topic,
                 "startDateTime": thedate,
@@ -50,28 +66,28 @@ myApp.controller('createClassController', ['$scope', '$http', '$interval', '$loc
                 console.log('AWS DOWN');
                 errorMesage(data.errorMessage);
             });
-        }
+        };
 
         //clearing all the status
         function clearStatus() {
             $scope.status = {};
             $scope.message = "";
             console.log("clearing status");
-        }
+        };
 
         //print success message
         function successMesage(message) {
             $scope.status.request_success = "true";
             $scope.message = message;
             $interval(clearStatus, 6000, 1);    //clear the status after 6 sec
-        }
+        };
 
         //print failure message
         function errorMesage(message) {
             $scope.status.request_failure = "true";
             $scope.message = message;
             $interval(clearStatus, 10000, 1);    //clear the status after 10 sec
-        }
+        };
 
         //$scope.meeting.datetime
         function calculateDate(date) {
@@ -89,14 +105,15 @@ myApp.controller('createClassController', ['$scope', '$http', '$interval', '$loc
                 hours = parseInt(hours) + 12;
             }
             return date + " " + hours + ":" + minutes + ":00";
-        }
+        };
 
         $(document).ready(function () {
             $('#date-picker1').daterangepicker(
                 {
+                    /*timePicker: true,*/
                     singleDatePicker: true,
-                    timePicker: true,
-                    format: 'MM/DD/YYYY h:mm A'
+                    /*format: 'MM/DD/YYYY h:mm A',*/
+                    startDate: "01/19/2017",
                 },
 
                 function (start, end, label) {

@@ -36,7 +36,7 @@ loginAppModule.controller('loginController', ['$scope', '$http', '$interval', '$
                     successMesage("User Login is successful");
 
                     localStorage.setItem("userId",data.data.id);
-
+                    localStorage.setItem("userName",data.data.presenterName);
                     //$location.url('index.html?/admin/dashboard');
                     //$window.location.href = 'http://localhost:9000/index.html?';
                     var url = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/HTML/index.html?";

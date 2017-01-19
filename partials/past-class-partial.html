@@ -1,6 +1,6 @@
 <!-- Start Page Header -->
 <div class="page-header">
-    <h1 class="title">Past Classes</h1>
+    <!--<h1 class="title">Past Classes</h1>-->
     <ol class="breadcrumb">
         <li><a href="index.html">Schedule Class</a></li>
         <li class="active">Past Tables</li>
@@ -20,6 +20,29 @@
 </div>
 <!-- End Page Header -->
 
+
+<!-- Start Presentation -->
+<div class="row presentation">
+
+    <div class="col-lg-8 col-md-6 titles">
+        <span class="icon color7-bg"><i class="fa fa-check-square-o"></i></span>
+        <h1>Past Classes</h1>
+        <h4>Check out all your previous classes</h4>
+    </div>
+
+    <!--<div class="col-lg-4 col-md-6">
+        <ul class="list-unstyled list">
+            <li><i class="fa fa-check"></i>Simplicity<li>
+            <li><i class="fa fa-check"></i>Based on <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a><li>
+            <li><i class="fa fa-check"></i><a href="https://github.com/flatlogic/awesome-bootstrap-checkbox" target="_blank">Awesome Bootstrap Checkbox</a><li>
+            <li><i class="fa fa-check"></i><a href="http://www.bootstraptoggle.com/" target="_blank">Bootstrap Toggle</a><li>
+            <li><i class="fa fa-check"></i><a href="http://silviomoreto.github.io/bootstrap-select/" target="_blank">Bootstrap Select</a><li>
+        </ul>
+    </div>-->
+
+</div>
+<!-- End Presentation -->
+
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 <!-- START CONTAINER -->
 <div class="container-padding">
@@ -35,7 +58,13 @@
                 </div>
                 <div class="panel-body table-responsive">
 
-                    <table id="example0" class="table display">
+                    <span ng-show="!pastClasses.length">
+                        <h4 class="color6">You have no recorded classes available.</h4>
+                        <p>Start by creating one class</p>
+                        <a href="#/admin/class/create" class="btn btn-sm">Create Class</a>
+                    </span>
+
+                    <table id="example0" class="table display" ng-show="pastClasses.length">
                         <thead>
                         <tr>
                             <th>Topic</th>

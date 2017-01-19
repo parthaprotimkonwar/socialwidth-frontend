@@ -1,7 +1,7 @@
 
 <!-- Start Page Header -->
 <div class="page-header">
-    <h1 class="title">Create a Class</h1>
+    <!--<h1 class="title">Create a Class</h1>-->
     <ol class="breadcrumb">
         <li><a href="index.html">Schedule Class</a></li>
         <li class="active">Create class</li>
@@ -16,14 +16,49 @@
             <a href="#" class="btn btn-light" id="topstats"><i class="fa fa-line-chart"></i></a>
         </div>
     </div>-->
-    <!-- End Page Header Right Div -->
+    <!--  End Page Header Right Div -->
 
 </div>
 <!-- End Page Header -->
+
+<!-- Start Presentation -->
+<div class="row presentation">
+
+    <div class="col-lg-8 col-md-6 titles">
+        <span class="icon color6-bg"><i class="fa fa-tasks"></i></span>
+        <h1>Start a meeting today!</h1>
+        <!--<h4>Check out all your previous classes</h4>-->
+    </div>
+
+    <!--<div class="col-lg-4 col-md-6">
+        <ul class="list-unstyled list">
+            <li><i class="fa fa-check"></i>Simplicity<li>
+            <li><i class="fa fa-check"></i>Based on <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a><li>
+            <li><i class="fa fa-check"></i><a href="https://github.com/flatlogic/awesome-bootstrap-checkbox" target="_blank">Awesome Bootstrap Checkbox</a><li>
+            <li><i class="fa fa-check"></i><a href="http://www.bootstraptoggle.com/" target="_blank">Bootstrap Toggle</a><li>
+            <li><i class="fa fa-check"></i><a href="http://silviomoreto.github.io/bootstrap-select/" target="_blank">Bootstrap Select</a><li>
+        </ul>
+    </div>-->
+
+</div>
+
 <div class="container-padding">
 
+    <!-- Start an Alert -->
+    <div ng-show="status.request_success" class="kode-alert kode-alert-icon alert3">
+        <i class="fa fa-check"></i>
+        <a href="#" class="closed">&times;</a>
+        {{message}}
+    </div>
+    <!-- End an Alert -->
 
-    {{message}}
+    <!-- Start an Alert -->
+    <div ng-show="status.request_failure" class="kode-alert kode-alert-icon alert6">
+        <i class="fa fa-lock"></i>
+        <a href="#" class="closed">&times;</a>
+        {{message}}
+    </div>
+    <!-- End an Alert -->
 
     <!-- Start Row -->
     <div class="row">
@@ -32,7 +67,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-title">
-                    Fill the below details
+                    Fill in the below details
                     <!--<ul class="panel-tools">
                         <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
                         <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
@@ -41,12 +76,12 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" name="create_meeting_form">
 
                         <div class="form-group">
                             <label for="input-topic" class="col-sm-2 control-label form-label">Topic</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="input-topic" ng-model="meeting.topic">
+                                <input type="text" class="form-control" id="input-topic" ng-model="meeting.topic" required>
                             </div>
                         </div>
 
@@ -56,8 +91,29 @@
                             <div class="col-sm-10">
                                 <div class="input-prepend input-group">
                                     <span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span>
-                                    <input type="text" id="date-picker1" class="form-control" ng-model="meeting.datetime" value="03/18/2015 1:30 AM"/>
+                                    <input type="text" id="date-picker1" class="form-control" ng-model="meeting.datetime" value="03/18/2015 1:30AM" required/>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label form-label">Start Time</label>
+                            <div class="col-sm-10">
+                                <select class="selectpicker" ng-model="meeting.hour">
+                                    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                                    <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                                    <option>11</option><option>12</option>
+                                </select>
+                                <select class="selectpicker" ng-model="meeting.minutes" >
+                                    <option>00</option>
+                                    <option>15</option>
+                                    <option>30</option>
+                                    <option>45</option>
+                                </select>
+                                <select class="selectpicker" ng-model="meeting.phase">
+                                    <option>AM</option>
+                                    <option>PM</option>
+                                </select>
                             </div>
                         </div>
 
@@ -67,7 +123,7 @@
                                 <label class="sr-only" for="timeDuration">Time (in hours)</label>
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-history"></i></div>
-                                    <input type="text" class="form-control" id="timeDuration" ng-model="meeting.timeduration" placeholder="Time in hours">
+                                    <input type="text" class="form-control" id="timeDuration" ng-model="meeting.timeduration" placeholder="Time in hours" required>
                                     <div class="input-group-addon">hours</div>
                                 </div>
                             </div>
@@ -84,7 +140,7 @@
                         <div class="form-group">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10">
-                                <button type="submit" ng-click="schedule()" class="btn btn-primary"><i class="fa fa-paper-plane-o"></i>Schedule it</button>
+                                <button type="submit" ng-click="create_meeting_form.$valid && schedule()" class="btn btn-primary"><i class="fa fa-paper-plane-o"></i>Schedule it</button>
                             </div>
                         </div>
 
