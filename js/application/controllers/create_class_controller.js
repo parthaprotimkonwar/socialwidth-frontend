@@ -16,13 +16,6 @@ myApp.controller('createClassController', ['$scope', '$http', '$interval', '$loc
             var url = CONSTANTS.APP_BASE_URL + "/meetings/create";
 
             $scope.status = {};
-            //$scope.meeting = {};
-            /* $scope.defaults = {
-             "values": [ "Service 1", "Service 2", "Service 3", "Service 4"]
-             };
-             $scope.meeting.hour = 10;
-             $scope.meeting.minutes = 10;
-             $scope.meeting.phase = 'AM';*/
 
             //"04/07/2017 23:02:55"
             var userId = localStorage.getItem("userId");
@@ -108,12 +101,16 @@ myApp.controller('createClassController', ['$scope', '$http', '$interval', '$loc
         };
 
         $(document).ready(function () {
+            var now = new Date();
+            var today = (now.getMonth() + 1) + "/" + now.getDate() + "/" + now.getFullYear();
+            console.log("**********" + today + "*******************");
+            //"01/19/2017"
             $('#date-picker1').daterangepicker(
                 {
                     /*timePicker: true,*/
                     singleDatePicker: true,
                     /*format: 'MM/DD/YYYY h:mm A',*/
-                    startDate: "01/19/2017",
+                    startDate: today,
                 },
 
                 function (start, end, label) {
