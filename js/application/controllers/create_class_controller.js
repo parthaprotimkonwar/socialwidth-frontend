@@ -28,7 +28,8 @@ myApp.controller('createClassController', ['$scope', '$http', '$interval', '$loc
                 "title": $scope.meeting.topic,
                 "startDateTime": thedate,
                 "duration": $scope.meeting.timeduration,
-                "presenterId": userId
+                "presenterId": userId,
+                "description": $scope.meeting.description
             };
 
             console.log("data to be send :");

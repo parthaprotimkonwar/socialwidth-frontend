@@ -21,7 +21,9 @@ loginAppModule.controller('registerController', ['$scope', '$http', '$interval',
         var data = {
             "presenterName": $scope.register.username,
             "emailId": $scope.register.email,
-            "password": $scope.register.password
+            "password": $scope.register.password,
+            "designation" : $scope.register.designation,
+            "department" : $scope.register.department
         };
 
         console.log("data to be send :");
